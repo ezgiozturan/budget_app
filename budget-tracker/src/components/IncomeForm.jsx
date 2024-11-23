@@ -1,9 +1,13 @@
+import { addIncome } from "@/redux/incomeSlice";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 export default function IncomeForm() {
   const [description, setDescription] = useState(" ");
   const [amount, setAmount] = useState(" ");
   const [date, setDate] = useState(" ");
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,8 +15,14 @@ export default function IncomeForm() {
       alert("Tüm alanları doldurunuz.");
       return;
     }
+
+    dispatch(addIncome({ description, amount: parseFloat(amount), date }));
+
+    setDescription("");
+    setAmount("");
+    setDate("");
   };
- 
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
