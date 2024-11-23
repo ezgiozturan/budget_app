@@ -27,15 +27,29 @@ export default function IncomeForm() {
     <form onSubmit={handleSubmit}>
       <div>
         <label>Gelir Açıklaması</label>
-        <input type="text" value={description} placeholder="Örneğin: Maaş" />
+        <input
+          type="text"
+          value={description}
+          placeholder="Örneğin: Maaş"
+          onChange={(e) => setDescription(e.target.value)}
+        />
       </div>
       <div>
         <label>Miktar</label>
-        <input type="number" value={amount} placeholder="Örneğin: 5000" />
+        <input
+          type="number"
+          value={amount}
+          placeholder="Örneğin: 5000"
+          onChange={(e) => setAmount(e.target.value)}
+        />
       </div>
       <div>
         <label>Tarih</label>
-        <input type="date" value={date} />
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
       </div>
       <button type="submit">Gelir Ekle</button>
     </form>
