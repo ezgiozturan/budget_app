@@ -5,6 +5,14 @@ export default function IncomeForm() {
   const [amount, setAmount] = useState(" ");
   const [date, setDate] = useState(" ");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!description || !amount || !date) {
+      alert("Tüm alanları doldurunuz.");
+      return;
+    }
+  };
+ 
   return (
     <form onSubmit={handleSubmit}>
       <div>
